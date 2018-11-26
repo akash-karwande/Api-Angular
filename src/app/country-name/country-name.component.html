@@ -1,10 +1,11 @@
 <div>
   <ul>
     <li *ngFor="let country of countries">
-		<a (click)="getCountryInfo(name)" href ='detail/{{country.name}}'>{{country.name}}</a>
+		<a href ='detail/{{country.name}}'>{{country.name}}</a>
     </li>
   </ul>
 </div>
  
 
- <app-details *ngIf="getCountryInfo" [detail]="getCountryInfo"></app-details>
+<!--  <app-details *ngIf="getCountryInfo" [detail]="getCountryInfo"></app-details>
+ -->

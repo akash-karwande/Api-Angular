@@ -12,28 +12,29 @@ import { ActivatedRoute } from '@angular/router';
 export class DetailsComponent implements OnInit {
 
 	public fullDetails: any;
-	private name : string;
+	public name : string;
 	private subs: any;
 
   constructor(private logicService: LogicService, private route : ActivatedRoute) {}
 
   ngOnInit() {
 
-  	console.log("in employee component");
+ 
 
   	 this.subs = this.route.params.subscribe(params => {
-       this.name = params['name']; // (+) converts string 'id' to a number
+       this.name = params['name'];
+       console.log(this.name)
 
-       console.log(this.name + "is the name");
+       
 
-       this.logicService.getCountryInfo(params['name']).subscribe(
+       this.logicService.getCountryInfo(this.name).subscribe(
       // the first argument is a function which runs on success
-      data => { this.fullDetails = data;
+       data => { this.fullDetails = data;
          console.log(this.fullDetails);},
       // the second argument is a function which runs on error
-      err => console.error(err),
+       err => console.log(err),
       // the third argument is a function which runs on completion
-      () => console.log('done loading country information')
+       () => console.log('done loading country information')
   );
        // In a real app: dispatch action to load the details here.
     });

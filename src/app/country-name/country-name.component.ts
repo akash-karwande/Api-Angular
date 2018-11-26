@@ -12,29 +12,18 @@ export class CountryNameComponent implements OnInit {
 
 	public countries: any;
   
-  
-
-  constructor( private logicService: LogicService) {
-
-    this.logicService.getCountryNames()
+ constructor( private logicService: LogicService) {
+   this.logicService.getCountryNames()
              .subscribe( data => {this.countries = data;
                      console.log(data);},
 
-
-      // the first argument is a function which runs on success
-             
-      // the second argument is a function which runs on error
               err => console.error(err),
-      // the third argument is a function which runs on completion
+     
               () => console.log('done loading Countries')
   );
-   
+           }
 
-   }
-
-         
-
-  ngOnInit() {
+ ngOnInit() {
 
 }
   

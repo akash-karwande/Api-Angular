@@ -20,14 +20,12 @@ export class LogicService {
 
   getCountryNames(){
 
-  	console.log('hey');
-
   	 return this.http.get('https://restcountries.eu/rest/v2/all');
 
  }
 
 
- getCountryInfo(name){
+ getCountryInfo(name:string){
  		var nam = name;
   	 	var url = 'https://restcountries.eu/rest/v2/name/'+nam;
  
